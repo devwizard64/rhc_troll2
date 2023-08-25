@@ -1,0 +1,20 @@
+ply
+format ascii 1.0
+comment Created by Blender 2.83.5 - www.blender.org, source file: 'stage3.blend'
+element vertex 4
+property float x
+property float y
+property float z
+property float nx
+property float ny
+property float nz
+property float s
+property float t
+element face 1
+property list uchar uint vertex_indices
+end_header
+-512.000000 1024.000000 512.000000 -0.000000 -1.000000 0.000000 1.999600 -1.999600
+-512.000000 1024.000000 -512.000000 -0.000000 -1.000000 0.000000 1.999600 1.999600
+512.000000 1024.000000 -512.000000 -0.000000 -1.000000 0.000000 -1.999600 1.999599
+512.000000 1024.000000 512.000000 -0.000000 -1.000000 0.000000 -1.999600 -1.999600
+4 0 1 2 3

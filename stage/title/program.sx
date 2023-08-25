@@ -1,0 +1,127 @@
+#include <sm64/p_script.h>
+
+.data
+
+.globl p_logo
+p_logo:
+	p_stage_init()
+	p_load_code(_menuSegmentStart, _menuSegmentRomStart, _menuSegmentRomEnd)
+	p_load_data(SEG_OBJECT, _ObjectSegmentRomStart, _ObjectSegmentRomEnd)
+	p_load_szp(SEG_STAGE_GFX, _TitleLogo_gfxSegmentRomStart, _TitleLogo_gfxSegmentRomEnd)
+	p_stage_start()
+		p_scene_start(1, s_logo)
+		p_scene_end()
+	p_stage_end()
+	p_scene_open(1)
+	p_callback(p_title_main, 0)
+	p_sleep(30*2+15)
+	p_wipe(0x01, 16, 0x00, 0x00, 0x00)
+	p_sleep(16)
+	p_scene_close(1)
+	p_stage_exit()
+	p_sleep(2)
+	p_chain(SEG_MENU_DATA, _Title_dataSegmentRomStart, _Title_dataSegmentRomEnd, p_face)
+
+.globl p_face
+p_face:
+	p_stage_init()
+	p_vi_black(TRUE)
+	p_load_code(_menuSegmentStart, _menuSegmentRomStart, _menuSegmentRomEnd)
+	p_load_face(2)
+	p_load_data(SEG_OBJECT, _ObjectSegmentRomStart, _ObjectSegmentRomEnd)
+	p_load_txt(SEG_BACKGROUND, _BackgroundTitleSegmentRomStart, _BackgroundTitleSegmentRomEnd)
+	p_stage_start()
+		p_scene_start(1, s_face)
+		p_scene_end()
+	p_stage_end()
+	p_sleep(2)
+	p_vi_black(FALSE)
+	p_scene_open(1)
+	p_bgm_play(NA_BGM_TITLE)
+	p_wipe(0x08, 20, 0x00, 0x00, 0x00)
+	p_sleep(20)
+	p_process(p_title_main, 1)
+	p_if_jump(EQ, 100, goto_file_select)
+	p_if_jump(EQ, 101, goto_debug)
+	p_jump(goto_demo)
+
+.globl p_gameover
+p_gameover:
+	p_stage_init()
+	p_vi_black(TRUE)
+	p_load_code(_menuSegmentStart, _menuSegmentRomStart, _menuSegmentRomEnd)
+	p_load_face(3)
+	p_load_data(SEG_OBJECT, _ObjectSegmentRomStart, _ObjectSegmentRomEnd)
+	p_load_txt(SEG_BACKGROUND, _BackgroundTitleSegmentRomStart, _BackgroundTitleSegmentRomEnd)
+	p_stage_start()
+		p_scene_start(1, s_gameover)
+		p_scene_end()
+	p_stage_end()
+	p_sleep(2)
+	p_vi_black(FALSE)
+	p_scene_open(1)
+	p_bgm_play(NA_BGM_GAMEOVER)
+	p_wipe(0x08, 20, 0x00, 0x00, 0x00)
+	p_sleep(20)
+	p_process(p_title_main, 2)
+	p_if_jump(EQ, 100, goto_file_select)
+	p_if_jump(EQ, 101, goto_debug)
+	p_jump(goto_demo)
+
+.globl p_debug
+p_debug:
+	p_stage_init()
+	p_load_data(SEG_OBJECT, _ObjectSegmentRomStart, _ObjectSegmentRomEnd)
+	p_load_txt(SEG_BACKGROUND, _BackgroundTitleSegmentRomStart, _BackgroundTitleSegmentRomEnd)
+	p_load_szp(SEG_STAGE_GFX, _TitleDebug_gfxSegmentRomStart, _TitleDebug_gfxSegmentRomEnd)
+	p_load_code(_menuSegmentStart, _menuSegmentRomStart, _menuSegmentRomEnd)
+	p_stage_start()
+		p_scene_start(1, s_debug)
+		p_scene_end()
+	p_stage_end()
+	p_scene_open(1)
+	p_bgm_play(NA_BGM_TITLE)
+	p_wipe(0x00, 16, 0xFF, 0xFF, 0xFF)
+	p_sleep(16)
+	p_process(p_title_main, 3)
+	p_if_jump(EQ, -1, goto_logo)
+	p_jump(goto_game)
+
+goto_file_select:
+	p_bgm_stop(192)
+	p_wipe(0x01, 16, 0xFF, 0xFF, 0xFF)
+	p_sleep(16)
+	p_stage_exit()
+	p_sleep(2)
+	p_set(16)
+	p_chain(SEG_MENU_DATA, _Select_dataSegmentRomStart, _Select_dataSegmentRomEnd, p_file_select)
+
+goto_debug:
+	p_wipe(0x01, 16, 0xFF, 0xFF, 0xFF)
+	p_sleep(16)
+	p_stage_exit()
+	p_sleep(2)
+	p_chain(SEG_MENU_DATA, _Title_dataSegmentRomStart, _Title_dataSegmentRomEnd, p_debug)
+
+goto_game:
+	p_bgm_stop(192)
+	p_wipe(0x01, 16, 0xFF, 0xFF, 0xFF)
+	p_sleep(16)
+	p_stage_exit()
+	p_sleep(2)
+	p_chain(SEG_GAME, _GameSegmentRomStart, _GameSegmentRomEnd, p_game)
+
+goto_demo:
+	p_wipe(0x01, 16, 0xFF, 0xFF, 0xFF)
+	p_sleep(16)
+	p_stage_exit()
+	p_sleep(2)
+	p_chain(SEG_GAME, _GameSegmentRomStart, _GameSegmentRomEnd, p_game)
+
+goto_logo:
+	p_bgm_stop(192)
+	p_wipe(0x01, 16, 0x00, 0x00, 0x00)
+	p_sleep(16)
+	p_stage_exit()
+	p_sleep(2)
+	p_chain(SEG_MENU_DATA, _Title_dataSegmentRomStart, _Title_dataSegmentRomEnd, p_logo)

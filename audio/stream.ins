@@ -1,0 +1,73 @@
+wave change
+{
+	sound changeL "stream/changeL.aifc";
+	sound changeR "stream/changeR.aifc";
+};
+
+bank change
+{
+	date = {2023, 7, 21};
+	wave change;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {changeL, C4};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {changeR, C4};
+	};
+};
+
+wave Movie
+{
+	sound Movie "stream/Movie.aifc";
+};
+
+bank Movie
+{
+	date = {2023, 7, 21};
+	wave Movie;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {Movie, C4};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {Movie, C4};
+	};
+};
+
+wave paint
+{
+	sound paintL "stream/paintL.aifc";
+	sound paintR "stream/paintR.aifc";
+};
+
+bank paint
+{
+	date = {2023, 7, 21};
+	wave paint;
+	envelope env0 {2, 32700, 1, 32700, 32700, 29430, -1, 0};
+	instrument[0] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {paintL, C4};
+	};
+	instrument[1] =
+	{
+		release = 208;
+		envelope = env0;
+		sound = {paintR, C4};
+	};
+};

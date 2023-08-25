@@ -1,0 +1,35 @@
+#include <sm64/p_script.h>
+
+.data
+
+.globl p_pss
+p_pss:
+	p_stage_init()
+	p_load_szp(SEG_STAGE_GFX, _PSS_gfxSegmentRomStart, _PSS_gfxSegmentRomEnd)
+	p_load_txt(SEG_TEXTURE, _TextureISegmentRomStart, _TextureISegmentRomEnd)
+	p_load_szp(SEG_SHAPE1_GFX, _Shape1H_gfxSegmentRomStart, _Shape1H_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE1_DATA, _Shape1H_dataSegmentRomStart, _Shape1H_dataSegmentRomEnd)
+	p_load_szp(SEG_SHAPE3_GFX, _Common_gfxSegmentRomStart, _Common_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE3_DATA, _Common_dataSegmentRomStart, _Common_dataSegmentRomEnd)
+	p_stage_start()
+		p_mario()
+		p_call(p_shape_3common)
+		p_call(p_shape_1h)
+		p_scene_start(1, s_pss1)
+			p_object_globl(S_NULL, 5632, 6751, -5631, 0, 270, 0, 0, 10, 0, o_13002F64)
+			p_port(10, STAGE_PSS, 1, 10)
+			p_port(243, STAGE_INSIDE, 1, 32)
+			p_port(240, STAGE_INSIDE, 1, 38)
+			p_port(241, STAGE_INSIDE, 1, 35)
+			p_map(0x0700E490)
+			p_obj(0x07010F00)
+			p_env(ENV_SLIDER)
+			p_bgm(NA_MODE_CASTLE, NA_BGM_SLIDER)
+		p_scene_end()
+	p_stage_end()
+	p_player_open(1, 270, 5632, 6451, -5631)
+	p_callback(p_game_main, 0)
+	p_process(p_game_main, 1)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()

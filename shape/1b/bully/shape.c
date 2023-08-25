@@ -1,0 +1,103 @@
+extern Gfx gfx_bully_horn_s[];
+extern Gfx gfx_bully_shoeL[];
+extern Gfx gfx_bully_shoeR[];
+extern Gfx gfx_bully_body_s[];
+extern Gfx gfx_bully_eye_s[];
+
+S_SCRIPT s_bully[] =
+{
+	s_shadow(70, 200, 1),
+	s_push(),
+		s_scale(0.375),
+		s_push(),
+			s_joint(OPA_SURF, NULL, 0, 0, 0),
+			s_push(),
+				s_joint(OPA_SURF, NULL, 0, 0, 0),
+				s_push(),
+					s_joint(OPA_SURF, NULL, 0, 0, 75),
+					s_push(),
+						s_joint(OPA_SURF, NULL, 0, 0, 0),
+						s_push(),
+							s_joint(OPA_SURF, NULL, 146, 0, 0),
+							s_push(),
+								s_joint(OPA_SURF, gfx_bully_shoeL, 0, 0, 0),
+							s_pull(),
+						s_pull(),
+					s_pull(),
+					s_joint(OPA_SURF, NULL, 0, 0, -75),
+					s_push(),
+						s_joint(OPA_SURF, NULL, 0, 0, 0),
+						s_push(),
+							s_joint(OPA_SURF, NULL, 146, 0, 0),
+							s_push(),
+								s_joint(OPA_SURF, gfx_bully_shoeR, 0, 0, 0),
+							s_pull(),
+						s_pull(),
+					s_pull(),
+					s_joint(OPA_SURF, NULL, 0, 0, 0),
+					s_push(),
+						s_billboard(0, 0, 0),
+						s_push(),
+							s_gfx(TEX_EDGE, gfx_bully_body_s),
+						s_pull(),
+					s_pull(),
+					s_joint(OPA_SURF, gfx_bully_horn_s, 0, 0, 0),
+					s_joint(TEX_EDGE, gfx_bully_eye_s, 0, 0, 0),
+				s_pull(),
+			s_pull(),
+		s_pull(),
+	s_pull(),
+	s_exit(),
+};
+
+extern Gfx gfx_bully_horn_s[];
+extern Gfx gfx_bully_shoeL[];
+extern Gfx gfx_bully_shoeR[];
+extern Gfx gfx_bully_body_big_s[];
+extern Gfx gfx_bully_eye_s[];
+
+S_SCRIPT s_bigbully[] =
+{
+	s_shadow(210, 200, 1),
+	s_push(),
+		s_scale(0.75),
+		s_push(),
+			s_joint(OPA_SURF, NULL, 0, 0, 0),
+			s_push(),
+				s_joint(OPA_SURF, NULL, 0, 0, 0),
+				s_push(),
+					s_joint(OPA_SURF, NULL, 0, 0, 75),
+					s_push(),
+						s_joint(OPA_SURF, NULL, 0, 0, 0),
+						s_push(),
+							s_joint(OPA_SURF, NULL, 146, 0, 0),
+							s_push(),
+								s_joint(OPA_SURF, gfx_bully_shoeL, 0, 0, 0),
+							s_pull(),
+						s_pull(),
+					s_pull(),
+					s_joint(OPA_SURF, NULL, 0, 0, -75),
+					s_push(),
+						s_joint(OPA_SURF, NULL, 0, 0, 0),
+						s_push(),
+							s_joint(OPA_SURF, NULL, 146, 0, 0),
+							s_push(),
+								s_joint(OPA_SURF, gfx_bully_shoeR, 0, 0, 0),
+							s_pull(),
+						s_pull(),
+					s_pull(),
+					s_joint(OPA_SURF, NULL, 0, 0, 0),
+					s_push(),
+						s_billboard(0, 0, 0),
+						s_push(),
+							s_gfx(TEX_EDGE, gfx_bully_body_big_s),
+						s_pull(),
+					s_pull(),
+					s_joint(OPA_SURF, gfx_bully_horn_s, 0, 0, 0),
+					s_joint(TEX_EDGE, gfx_bully_eye_s, 0, 0, 0),
+				s_pull(),
+			s_pull(),
+		s_pull(),
+	s_pull(),
+	s_exit(),
+};

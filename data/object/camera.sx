@@ -1,0 +1,59 @@
+#include <sm64/o_script.h>
+
+#define SCRIPT
+
+.data
+
+/* O_SCRIPT o_13005610[] */
+.globl o_13005610
+o_13005610:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_ptr(O_ANIME, 0x060058F8)
+	o_anime(0x00)
+	o_setf(O_ALPHA, 0)
+	o_while()
+		o_callback(camera_8029B49C)
+	o_wend()
+
+/* O_SCRIPT o_13005638[] */
+.globl o_13005638
+o_13005638:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_ptr(O_ANIME, 0x0501C504)
+	o_anime(0x00)
+	o_while()
+		o_callback(camera_8029B08C)
+	o_wend()
+
+/* O_SCRIPT o_1300565C[] */
+.globl o_1300565C
+o_1300565C:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0011)
+	o_ptr(O_ANIME, 0x050009E8)
+	o_anime(0x00)
+	o_while()
+		o_callback(camera_8029BDE4)
+	o_wend()
+
+/* O_SCRIPT o_13005680[] */
+.globl o_13005680
+o_13005680:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0011)
+	o_ptr(O_ANIME, 0x050009E8)
+	o_anime(0x00)
+	o_while()
+		o_callback(camera_8029BF64)
+	o_wend()
+
+/* O_SCRIPT o_130056A4[] */
+.globl o_130056A4
+o_130056A4:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_while()
+		o_callback(camera_8029C254)
+	o_wend()

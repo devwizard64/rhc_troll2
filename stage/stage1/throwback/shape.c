@@ -1,0 +1,36 @@
+extern Gfx gfx_throwback_opa_surf[];
+extern Gfx gfx_throwback_xlu_surf[];
+
+S_SCRIPT s_throwback[] =
+{
+	s_scene(160, 120, 160, 120, 10),
+	s_push(),
+		s_layer(FALSE),
+		s_push(),
+			s_ortho(100),
+			s_push(),
+				s_background(3, s_stage_background),
+			s_pull(),
+		s_pull(),
+		s_layer(TRUE),
+		s_push(),
+			s_perspective(45, 100, 30000, s_stage_perspective),
+			s_push(),
+				s_camera(14, 0, 2000, 6000, 0, 0, 0, s_stage_camera),
+				s_push(),
+					s_gfx(OPA_SURF, gfx_throwback_opa_surf),
+					s_gfx(XLU_SURF, gfx_throwback_xlu_surf),
+					s_object(),
+					s_callback(0, s_scroll_802D01E0),
+					s_callback(0x0101, s_scroll_802D104C),
+					s_callback(0, s_stage_weather),
+				s_pull(),
+			s_pull(),
+		s_pull(),
+		s_layer(FALSE),
+		s_push(),
+			s_callback(0, s_wipe_802CD1E8),
+		s_pull(),
+	s_pull(),
+	s_exit(),
+};

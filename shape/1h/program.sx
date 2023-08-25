@@ -1,0 +1,6 @@
+.globl p_shape_1h
+p_shape_1h:
+	p_shape_gfx(S_1G_84, 0x05002E00, TEX_EDGE)
+	p_shape_script(S_1G_85, s_1h_85)
+	p_shape_gfx(S_1G_86, 0x05003120, OPA_SURF)
+	p_return()

@@ -1,0 +1,19 @@
+#include <sm64/p_script.h>
+
+.data
+
+.globl p_paint
+p_paint:
+	p_stage_init()
+	p_load_szp(SEG_STAGE_GFX, _Paint_gfxSegmentRomStart, _Paint_gfxSegmentRomEnd)
+	p_sleep(10)
+	p_bgm_play(NA_BGM_PAINT)
+	p_callback(p_paint_init, 0)
+	p_process(p_paint_update, 0)
+	p_bgm_stop(192)
+	p_process(p_paint_fade, 0)
+	p_callback(p_paint_save, 0)
+	p_sleep(10)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()

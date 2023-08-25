@@ -1,0 +1,11 @@
+.globl p_shape_2b
+p_shape_2b:
+	p_shape_script(S_2B_100, s_2b_100)
+	p_shape_script(S_2B_101, s_2b_101)
+	p_shape_script(S_2B_102, s_2b_102)
+	p_shape_script(S_2B_103, s_2b_103)
+	p_shape_script(S_2B_104, s_2b_104)
+	p_shape_script(S_2B_179, s_2b_179)
+	p_shape_script(S_2B_193, s_2b_193)
+	p_shape_script(S_2B_105, s_2b_105)
+	p_return()

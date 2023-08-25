@@ -1,0 +1,19 @@
+#include <sm64/p_script.h>
+
+.data
+
+#define STAGE   0
+
+.globl p_main
+p_main:
+	p_stage_init()
+	p_sleep(2)
+	p_vi_black(FALSE)
+	p_callback(p_userinfo, 0)
+	p_set(STAGE)
+#if STAGE == 0
+	p_execute(SEG_MENU_DATA, _Title_dataSegmentRomStart, _Title_dataSegmentRomEnd, p_logo)
+#else
+	p_execute(SEG_GAME, _GameSegmentRomStart, _GameSegmentRomEnd, p_game)
+#endif
+	p_jump(p_main)

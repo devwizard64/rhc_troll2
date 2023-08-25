@@ -1,0 +1,127 @@
+#include <sm64/o_script.h>
+
+#define SCRIPT
+
+.data
+
+/* O_SCRIPT o_mario[] */
+.globl o_mario
+o_mario:
+	o_init(O_TYPE_PLAYER)
+	o_seti(O_COL_TIMER, 0)
+	o_setflag(O_FLAG, 0x0100)
+	o_setflag(3, 0x0001)
+	o_col_hit(37, 160)
+	o_while()
+		o_callback(obj_debug_802CB1C0)
+		o_callback(object_8029CA58)
+		o_callback(obj_debug_802CB264)
+#if 0
+		o_callback(mario_updatenew)
+#endif
+	o_wend()
+
+/* O_SCRIPT o_13002EF8[] */
+.globl o_13002EF8
+o_13002EF8:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x4049)
+	o_ptr(O_ANIME, 0x0600FC48)
+	o_anime(0x06)
+	o_col_type(0x00800000)
+	o_col_hit(80, 100)
+	o_seti(O_COL_TIMER, 0)
+	o_callback(obj_lib_802A4120)
+	o_callback(pl_callback_80276910)
+	o_while()
+		o_callback(pl_callback_8027684C)
+	o_wend()
+
+/* O_SCRIPT o_13002F40[] */
+.globl o_13002F40
+o_13002F40:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0009)
+	o_callback(pl_callback_80276BB8)
+	o_while()
+		o_callback(pl_callback_80276CCC)
+	o_wend()
+
+/* O_SCRIPT o_bouncearea[] */
+.globl o_bouncearea
+o_bouncearea:
+	o_init(O_TYPE_ITEM)
+	o_ground()
+	o_while()
+		o_callback(bouncearea_update)
+	o_wend()
+
+/* O_SCRIPT o_13002F60[] */
+.globl o_13002F60
+o_13002F60:
+	o_exit()
+
+/* O_SCRIPT o_13002F64[] */
+.globl o_13002F64
+o_13002F64:
+	o_exit()
+
+/* O_SCRIPT o_13002F68[] */
+.globl o_13002F68
+o_13002F68:
+	o_exit()
+
+/* O_SCRIPT o_13002F6C[] */
+.globl o_13002F6C
+o_13002F6C:
+	o_exit()
+
+/* O_SCRIPT o_13002F70[] */
+.globl o_13002F70
+o_13002F70:
+	o_exit()
+
+/* O_SCRIPT o_13002F74[] */
+.globl o_13002F74
+o_13002F74:
+	o_exit()
+
+/* O_SCRIPT o_13002F78[] */
+.globl o_13002F78
+o_13002F78:
+	o_exit()
+
+/* O_SCRIPT o_13002F7C[] */
+.globl o_13002F7C
+o_13002F7C:
+	o_exit()
+
+/* O_SCRIPT o_13002F80[] */
+.globl o_13002F80
+o_13002F80:
+	o_exit()
+
+/* O_SCRIPT o_13002F84[] */
+.globl o_13002F84
+o_13002F84:
+	o_exit()
+
+/* O_SCRIPT o_13002F88[] */
+.globl o_13002F88
+o_13002F88:
+	o_exit()
+
+/* O_SCRIPT o_13002F8C[] */
+.globl o_13002F8C
+o_13002F8C:
+	o_exit()
+
+/* O_SCRIPT o_13002F90[] */
+.globl o_13002F90
+o_13002F90:
+	o_exit()
+
+/* O_SCRIPT o_13002F94[] */
+.globl o_13002F94
+o_13002F94:
+	o_exit()

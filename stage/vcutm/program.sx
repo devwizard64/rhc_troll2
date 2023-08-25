@@ -1,0 +1,58 @@
+#include <sm64/p_script.h>
+
+.data
+
+p_vcutm_0E000000:
+	p_object_globl(S_VCUTM_54, 154, -1919, -6256, 0, 270, 0, 0, 7, 0, o_13004B1C)
+	p_object_globl(S_VCUTM_54, -2047, -3378, -2047, 0, 0, 0, 0, 7, 0, o_13004B1C)
+	p_object_globl(S_VCUTM_55, 3251, -1082, -6256, 0, 270, 0, 1, 75, 0, o_13001B70)
+	p_object_globl(S_VCUTM_55, 2355, -1901, -6256, 0, 270, 0, 1, 75, 0, o_13001B70)
+	p_object_globl(S_VCUTM_55, 1459, -1594, -6256, 0, 90, 0, 1, 75, 0, o_13001B70)
+	p_object_globl(S_VCUTM_55, -1151, -2413, -6256, 0, 270, 0, 1, 75, 0, o_13001B70)
+	p_return()
+
+p_vcutm_0E000094:
+	p_object_globl(S_1H_85, 4506, 26, -6246, 0, 0, 0, 0, 2, 0, o_130001CC)
+	p_return()
+
+p_vcutm_0E0000B0:
+	p_object_globl(S_NULL, 4600, 250, -4500, 0, 0, 0, 0, 0, 0, o_13003E8C)
+	p_return()
+
+.globl p_vcutm
+p_vcutm:
+	p_stage_init()
+	p_load_txt(SEG_TEXTURE, _TextureKSegmentRomStart, _TextureKSegmentRomEnd)
+	p_load_szp(SEG_STAGE_GFX, _VCutM_gfxSegmentRomStart, _VCutM_gfxSegmentRomEnd)
+	p_load_szp(SEG_SHAPE1_GFX, _Shape1H_gfxSegmentRomStart, _Shape1H_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE1_DATA, _Shape1H_dataSegmentRomStart, _Shape1H_dataSegmentRomEnd)
+	p_load_szp(SEG_SHAPE3_GFX, _Common_gfxSegmentRomStart, _Common_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE3_DATA, _Common_dataSegmentRomStart, _Common_dataSegmentRomEnd)
+	p_stage_start()
+		p_mario()
+		p_call(p_shape_3common)
+		p_call(p_shape_1h)
+		p_shape_script(S_VCUTM_54, s_vcutm_54)
+		p_shape_script(S_PIPE, s_pipe)
+		p_scene_start(1, s_vcutm1)
+			p_object_globl(S_NULL, -6143, 6734, -6143, 0, 0, 0, 0, 10, 0, o_13002F64)
+			p_port(10, STAGE_VCUTM, 1, 10)
+			p_port(243, STAGE_GROUNDS, 1, 7)
+			p_port(240, STAGE_GROUNDS, 1, 8)
+			p_port(241, STAGE_GROUNDS, 1, 6)
+			p_call(p_vcutm_0E0000B0)
+			p_call(p_vcutm_0E000000)
+			p_call(p_vcutm_0E000094)
+			p_map(0x07009750)
+			p_obj(0x0700AB0C)
+			p_msg(0, 129)
+			p_bgm(NA_MODE_DEFAULT, NA_BGM_SLIDER)
+			p_env(ENV_ROCK)
+		p_scene_end()
+	p_stage_end()
+	p_player_open(1, 0, -6143, 5734, -6143)
+	p_callback(p_game_main, 0)
+	p_process(p_game_main, 1)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()

@@ -1,0 +1,16 @@
+$name: level2
+$lang: en
+
+$tbl:
+Shoot to the Island in
+the Sky
+
+$tbl:
+Deep Dive into Lake X
+
+$tbl:
+Secrets of the Pachinko
+Machine
+
+$tbl:
+Find the 8 Red Coins

@@ -1,0 +1,241 @@
+#include <sm64/p_script.h>
+
+.data
+
+.globl p_game
+p_game:
+	p_load_szp(SEG_PLAYER_GFX, _Player_gfxSegmentRomStart, _Player_gfxSegmentRomEnd)
+	p_load_szp(SEG_GLOBAL_GFX, _Global_gfxSegmentRomStart, _Global_gfxSegmentRomEnd)
+	p_load_data(SEG_PLAYER_DATA, _Player_dataSegmentRomStart, _Player_dataSegmentRomEnd)
+	p_load_data(SEG_GLOBAL_DATA, _Global_dataSegmentRomStart, _Global_dataSegmentRomEnd)
+	p_load_data(SEG_OBJECT, _ObjectSegmentRomStart, _ObjectSegmentRomEnd)
+	p_stage_start()
+		p_shape_script(S_MARIO, s_mario)
+		p_shape_script(S_DUST, s_dust)
+		p_shape_script(S_SPARKLE, s_sparkle)
+		p_shape_script(S_BUBBLE_A, s_bubble_a)
+		p_shape_script(S_WAVE, s_wave)
+		p_shape_script(S_RIPPLE_STOP, s_ripple_stop)
+		p_shape_script(S_SPLASH, s_splash)
+		p_shape_script(S_RIPPLE_MOVE, s_ripple_move)
+		p_shape_script(S_COIN, s_coin)
+		p_shape_script(S_POWERSTAR, s_powerstar)
+		p_shape_script(S_SHADOWSTAR, s_shadowstar)
+		p_shape_script(S_SIGNPOST, s_signpost)
+		p_shape_gfx(S_DROPLET, gfx_droplet, TEX_EDGE)
+		p_shape_script(S_FLAME, s_flame)
+		p_shape_script(S_BLUEFLAME, s_blueflame)
+		p_shape_script(S_SMOKE, s_smoke)
+		p_shape_script(S_LEAF, s_leaf)
+		p_shape_script(S_BUBBLE_B, s_bubble_b)
+		p_shape_script(S_FISH, s_fish)
+		p_shape_script(S_FISH_SHADOW, s_fish_shadow)
+		p_shape_script(S_GLOW, s_glow)
+		p_shape_gfx(S_SAND, gfx_sand, TEX_EDGE)
+		p_shape_script(S_BUTTERFLY, s_butterfly)
+		p_shape_script(S_SMOKE2, s_smoke)
+		p_shape_gfx(S_STONE, gfx_stone, TEX_EDGE)
+		p_shape_script(S_WHITEPUFF, s_whitepuff)
+		p_shape_script(S_BLACKPUFF, s_blackpuff)
+		p_shape_gfx(S_SNOW, gfx_snow, TEX_EDGE)
+		p_shape_script(S_SNOWBALL, s_snowball)
+		p_shape_script(S_COIN_NOSHADOW, s_coin_noshadow)
+		p_shape_script(S_BLUECOIN, s_bluecoin)
+		p_shape_script(S_BLUECOIN_NOSHADOW, s_bluecoin_noshadow)
+		p_shape_script(S_WINGCAP_E, s_wingcap_e)
+		p_shape_script(S_CAP_E, s_cap_e)
+		p_shape_script(S_WINGCAP_S, s_wingcap_s)
+		p_shape_script(S_CAP_S, s_cap_s)
+		p_shape_script(S_CAP_S, s_cap_s)
+		p_shape_script(S_DOORKEY, s_doorkey)
+		p_shape_script(S_BOWSERKEY, s_bowserkey)
+		p_shape_script(S_FLAME_SHADOW, s_flame_shadow)
+		p_shape_script(S_1UP, s_1up)
+		p_shape_script(S_REDCOIN, s_redcoin)
+		p_shape_script(S_REDCOIN_NOSHADOW, s_redcoin_noshadow)
+		p_shape_script(S_NUMBER, s_number)
+		p_shape_script(S_EXPLOSION, s_explosion)
+		p_shape_script(S_SHARD, s_shard)
+		p_shape_script(S_STAR, s_star)
+	p_stage_end()
+	p_callback(p_game_init, 0)
+	p_callback(p_hypercam, 3)
+	p_do()
+		p_execute(SEG_MENU_DATA, _Select_dataSegmentRomStart, _Select_dataSegmentRomEnd, p_star_select)
+		p_call(p_game_stage)
+		p_sleep(1)
+	p_while(GT, 0)
+	p_if_jump(EQ, -1, .case_m1)
+	p_if_jump(EQ, -2, .case_m2)
+	p_if_jump(EQ, -3, .case_m3)
+	p_if_jump(EQ, -8, .case_m8)
+	p_if_jump(EQ, -9, .case_m9)
+.case_m8:
+	p_chain(SEG_MENU_DATA, _Title_dataSegmentRomStart, _Title_dataSegmentRomEnd, p_logo)
+.case_m1:
+	p_chain(SEG_STAGE_DATA, _Ending_dataSegmentRomStart, _Ending_dataSegmentRomEnd, p_ending)
+.case_m2:
+	p_chain(SEG_MENU_DATA, _Title_dataSegmentRomStart, _Title_dataSegmentRomEnd, p_face)
+.case_m3:
+	p_chain(SEG_MENU_DATA, _Title_dataSegmentRomStart, _Title_dataSegmentRomEnd, p_gameover)
+.case_m9:
+	p_chain(SEG_MENU_DATA, _Title_dataSegmentRomStart, _Title_dataSegmentRomEnd, p_debug)
+
+p_game_stage:
+	p_load(STAGE)
+	p_if_jump(EQ, 1, .case_1)
+	p_if_jump(EQ, 2, .case_2)
+	p_if_jump(EQ, 3, .case_3)
+	p_if_jump(EQ, 4, .case_4)
+	p_if_jump(EQ, 5, .case_5)
+	p_if_jump(EQ, 6, .case_6)
+	p_if_jump(EQ, 7, .case_7)
+	p_if_jump(EQ, 8, .case_8)
+	p_if_jump(EQ, 9, .case_9)
+	p_if_jump(EQ, 10, .case_10)
+	p_if_jump(EQ, 11, .case_11)
+	p_if_jump(EQ, 12, .case_12)
+	p_if_jump(EQ, 13, .case_13)
+	p_if_jump(EQ, 14, .case_14)
+	p_if_jump(EQ, 15, .case_15)
+	p_if_jump(EQ, 16, .case_16)
+	p_if_jump(EQ, 17, .case_17)
+	p_if_jump(EQ, 18, .case_18)
+	p_if_jump(EQ, 19, .case_19)
+	p_if_jump(EQ, 20, .case_20)
+	p_if_jump(EQ, 21, .case_21)
+	p_if_jump(EQ, 22, .case_22)
+	p_if_jump(EQ, 23, .case_23)
+	p_if_jump(EQ, 24, .case_24)
+	p_if_jump(EQ, 25, .case_25)
+	p_if_jump(EQ, 26, .case_26)
+	p_if_jump(EQ, 27, .case_27)
+	p_if_jump(EQ, 28, .case_28)
+	p_if_jump(EQ, 29, .case_29)
+	p_if_jump(EQ, 30, .case_30)
+	p_if_jump(EQ, 31, .case_31)
+	p_if_jump(EQ, 33, .case_33)
+	p_if_jump(EQ, 34, .case_34)
+	p_if_jump(EQ, 36, .case_36)
+	p_exit()
+.case_1:
+	p_execute(SEG_STAGE_DATA, _Stage1_dataSegmentRomStart, _Stage1_dataSegmentRomEnd, p_stage1)
+	p_return()
+.case_2:
+	p_execute(SEG_STAGE_DATA, _Stage2_dataSegmentRomStart, _Stage2_dataSegmentRomEnd, p_stage2)
+	p_return()
+.case_3:
+	p_execute(SEG_STAGE_DATA, _Stage3_dataSegmentRomStart, _Stage3_dataSegmentRomEnd, p_stage3)
+	p_return()
+.case_4:
+	p_execute(SEG_STAGE_DATA, _BBH_dataSegmentRomStart, _BBH_dataSegmentRomEnd, p_bbh)
+	p_return()
+.case_5:
+	p_execute(SEG_STAGE_DATA, _CCM_dataSegmentRomStart, _CCM_dataSegmentRomEnd, p_ccm)
+	p_return()
+.case_6:
+	p_execute(SEG_STAGE_DATA, _Inside_dataSegmentRomStart, _Inside_dataSegmentRomEnd, p_inside)
+	p_return()
+.case_7:
+	p_execute(SEG_STAGE_DATA, _HMC_dataSegmentRomStart, _HMC_dataSegmentRomEnd, p_hmc)
+	p_return()
+.case_8:
+	p_execute(SEG_STAGE_DATA, _SSL_dataSegmentRomStart, _SSL_dataSegmentRomEnd, p_ssl)
+	p_return()
+.case_9:
+	p_execute(SEG_STAGE_DATA, _BoB_dataSegmentRomStart, _BoB_dataSegmentRomEnd, p_bob)
+	p_return()
+.case_10:
+	p_execute(SEG_STAGE_DATA, _SL_dataSegmentRomStart, _SL_dataSegmentRomEnd, p_sl)
+	p_return()
+.case_11:
+	p_execute(SEG_STAGE_DATA, _WDW_dataSegmentRomStart, _WDW_dataSegmentRomEnd, p_wdw)
+	p_return()
+.case_12:
+	p_execute(SEG_STAGE_DATA, _JRB_dataSegmentRomStart, _JRB_dataSegmentRomEnd, p_jrb)
+	p_return()
+.case_13:
+	p_execute(SEG_STAGE_DATA, _THI_dataSegmentRomStart, _THI_dataSegmentRomEnd, p_thi)
+	p_return()
+.case_14:
+	p_execute(SEG_STAGE_DATA, _TTC_dataSegmentRomStart, _TTC_dataSegmentRomEnd, p_ttc)
+	p_return()
+.case_15:
+	p_execute(SEG_STAGE_DATA, _RR_dataSegmentRomStart, _RR_dataSegmentRomEnd, p_rr)
+	p_return()
+.case_16:
+	p_execute(SEG_STAGE_DATA, _Grounds_dataSegmentRomStart, _Grounds_dataSegmentRomEnd, p_grounds)
+	p_return()
+.case_17:
+	p_execute(SEG_STAGE_DATA, _BitDW_dataSegmentRomStart, _BitDW_dataSegmentRomEnd, p_bitdw)
+	p_return()
+.case_18:
+	p_execute(SEG_STAGE_DATA, _VCutM_dataSegmentRomStart, _VCutM_dataSegmentRomEnd, p_vcutm)
+	p_return()
+.case_19:
+	p_execute(SEG_STAGE_DATA, _BitFS_dataSegmentRomStart, _BitFS_dataSegmentRomEnd, p_bitfs)
+	p_return()
+.case_20:
+	p_execute(SEG_STAGE_DATA, _SA_dataSegmentRomStart, _SA_dataSegmentRomEnd, p_sa)
+	p_return()
+.case_21:
+	p_execute(SEG_STAGE_DATA, _BitS_dataSegmentRomStart, _BitS_dataSegmentRomEnd, p_bits)
+	p_return()
+.case_22:
+	p_execute(SEG_STAGE_DATA, _LLL_dataSegmentRomStart, _LLL_dataSegmentRomEnd, p_lll)
+	p_return()
+.case_23:
+	p_execute(SEG_STAGE_DATA, _DDD_dataSegmentRomStart, _DDD_dataSegmentRomEnd, p_ddd)
+	p_return()
+.case_24:
+	p_execute(SEG_STAGE_DATA, _WF_dataSegmentRomStart, _WF_dataSegmentRomEnd, p_wf)
+	p_return()
+.case_25:
+	p_execute(SEG_STAGE_DATA, _Ending_dataSegmentRomStart, _Ending_dataSegmentRomEnd, p_ending)
+	p_return()
+.case_26:
+	p_execute(SEG_STAGE_DATA, _Courtyard_dataSegmentRomStart, _Courtyard_dataSegmentRomEnd, p_courtyard)
+	p_return()
+.case_27:
+	p_execute(SEG_STAGE_DATA, _PSS_dataSegmentRomStart, _PSS_dataSegmentRomEnd, p_pss)
+	p_return()
+.case_28:
+	p_execute(SEG_STAGE_DATA, _CotMC_dataSegmentRomStart, _CotMC_dataSegmentRomEnd, p_cotmc)
+	p_return()
+.case_29:
+	p_execute(SEG_STAGE_DATA, _TotWC_dataSegmentRomStart, _TotWC_dataSegmentRomEnd, p_totwc)
+	p_return()
+.case_30:
+	p_execute(SEG_STAGE_DATA, _BitDWA_dataSegmentRomStart, _BitDWA_dataSegmentRomEnd, p_bitdwa)
+	p_return()
+.case_31:
+	p_execute(SEG_STAGE_DATA, _WMotR_dataSegmentRomStart, _WMotR_dataSegmentRomEnd, p_wmotr)
+	p_return()
+.case_33:
+	p_execute(SEG_STAGE_DATA, _BitFSA_dataSegmentRomStart, _BitFSA_dataSegmentRomEnd, p_bitfsa)
+	p_return()
+.case_34:
+	p_execute(SEG_STAGE_DATA, _BitSA_dataSegmentRomStart, _BitSA_dataSegmentRomEnd, p_bitsa)
+	p_return()
+.case_36:
+	p_execute(SEG_STAGE_DATA, _TTM_dataSegmentRomStart, _TTM_dataSegmentRomEnd, p_ttm)
+	p_return()
+
+#include "shape/3common/program.sx"
+#include "shape/1a/program.sx"
+#include "shape/1b/program.sx"
+#include "shape/1c/program.sx"
+#include "shape/1d/program.sx"
+#include "shape/1e/program.sx"
+#include "shape/1f/program.sx"
+#include "shape/1g/program.sx"
+#include "shape/1h/program.sx"
+#include "shape/1i/program.sx"
+#include "shape/1j/program.sx"
+#include "shape/1k/program.sx"
+#include "shape/2a/program.sx"
+#include "shape/2b/program.sx"
+#include "shape/2c/program.sx"
+#include "shape/2d/program.sx"
+#include "shape/2e/program.sx"
+#include "shape/2f/program.sx"

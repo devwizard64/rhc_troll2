@@ -1,0 +1,64 @@
+#ifndef __SM64_FILE_SELECT_H__
+#define __SM64_FILE_SELECT_H__
+
+extern s16 file_select_801B99F0;
+extern OBJECT *file_select_801B99F8[32];
+extern u8 file_select_801B9A78[2];
+extern s8 file_select_801A7D10;
+extern s8 file_select_801A7D14;
+extern u8 file_select_801A7D18;
+extern f32 file_select_801A7D1C[2];
+extern s16 file_select_801A7D24;
+extern s16 file_select_801A7D28[2];
+extern s8 file_select_801A7D2C;
+extern s8 file_select_801A7D30;
+extern s8 file_select_801A7D34;
+extern u8 file_select_801A7D38;
+extern s16 file_select_801A7D3C;
+extern s8 file_select_801A7D40;
+extern s8 file_select_801A7D44;
+extern s8 file_select_801A7D48;
+extern s8 file_select_801A7D4C;
+extern s8 file_select_801A7D50;
+extern unsigned char str_801A7D54[];
+extern unsigned char str_801A7D5C[];
+extern unsigned char str_801A7D68[];
+extern unsigned char str_801A7D74[];
+extern unsigned char str_801A7D80[][8];
+extern unsigned char str_801A7D98[];
+extern unsigned char str_801A7DA0[];
+extern unsigned char str_801A7DA8[];
+extern unsigned char str_801A7DB0[];
+extern unsigned char str_801A7DB8[];
+extern unsigned char str_801A7DBC[];
+extern unsigned char str_801A7DC0[];
+extern unsigned char str_801A7DC4[];
+extern unsigned char str_801A7DD0[];
+extern unsigned char str_801A7DD8[];
+extern unsigned char str_801A7DE0[];
+extern unsigned char str_801A7DE8[];
+extern unsigned char str_801A7DF4[];
+extern unsigned char str_801A7E0C[];
+extern unsigned char str_801A7E18[];
+extern unsigned char str_801A7E2C[];
+extern unsigned char str_801A7E44[];
+extern unsigned char str_801A7E58[];
+extern unsigned char str_801A7E6C[];
+extern unsigned char str_801A7E7C[];
+extern unsigned char str_801A7E80[];
+extern unsigned char str_801A7E84[];
+extern unsigned char str_801A7E90[];
+extern unsigned char str_801A7E98[];
+extern unsigned char str_801A7EB0[];
+extern unsigned char str_801A7EC4[];
+extern unsigned char str_801A7ED8[];
+extern unsigned char str_801A7EE8[];
+extern unsigned char str_801A7EEC[];
+extern unsigned char str_801A7EF0[];
+extern unsigned char str_801A7EF4[][8];
+extern unsigned char str_801A7F1C[];
+extern unsigned char str_801A7F24[];
+extern unsigned char str_801A7F30[];
+extern s16 file_select_801A7F3C;
+
+#endif /* __SM64_FILE_SELECT_H__ */

@@ -1,0 +1,1637 @@
+#include <sm64/o_script.h>
+
+#define SCRIPT
+
+.data
+
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_setf(O_SHAPE_OFF_Y, -16)
+	o_billboard()
+	o_seti(O_ANIME_CODE, -1)
+	o_while()
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_13002FC0[] */
+.globl o_13002FC0
+o_13002FC0:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(file_select_80170280)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(file_select_801702B8)
+	o_wend()
+
+/* O_SCRIPT o_13002FE4[] */
+.globl o_13002FE4
+o_13002FE4:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(file_select_80170AEC)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(file_select_80170B1C)
+	o_wend()
+
+/* O_SCRIPT o_13003008[] */
+.globl o_13003008
+o_13003008:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0821)
+	o_callback(file_select_80172D70)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(file_select_80173430)
+	o_wend()
+
+/* O_SCRIPT o_1300302C[] */
+.globl o_1300302C
+o_1300302C:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_origin()
+	o_while()
+		o_callback(star_select_801768E0)
+	o_wend()
+
+/* O_SCRIPT o_13003048[] */
+.globl o_13003048
+o_13003048:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(star_select_80176B20)
+	o_while()
+		o_callback(star_select_80176DF0)
+	o_wend()
+
+/* O_SCRIPT o_13003068[] */
+.globl o_13003068
+o_13003068:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_col_hit(100, 64)
+	o_seti(O_COL_TYPE, 16)
+	o_seti(O_COL_TIMER, 0)
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802E5EE8)
+	o_while()
+		o_callback(object_b_802E5F64)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_130030A4[] */
+.globl o_130030A4
+o_130030A4:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_seti(O_COL_TIMER, 0)
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802E6098)
+	o_while()
+		o_callback(object_b_802E6114)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_130030D4[] */
+.globl o_130030D4
+o_130030D4:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2041)
+	o_billboard()
+	o_seti(O_COL_TIMER, 0)
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802E62A4)
+	o_while()
+		o_callback(object_b_802E6474)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_13003104[] */
+.globl o_13003104
+o_13003104:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2041)
+	o_billboard()
+	o_seti(O_COL_TIMER, 0)
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802E62A4)
+	o_while()
+		o_callback(object_b_802E6628)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_13003134[] */
+.globl o_13003134
+o_13003134:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_ptr(O_ANIME, 0x0600A4D4)
+	o_anime(0x00)
+	o_callback(object_b_802E6790)
+	o_while()
+	o_wend()
+
+/* O_SCRIPT o_13003158[] */
+.globl o_13003158
+o_13003158:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_ground()
+	o_callback(object_b_802E67DC)
+	o_while()
+	o_wend()
+
+/* O_SCRIPT o_13003174[] */
+.globl o_13003174
+o_13003174:
+	o_init(O_TYPE_PL_ATTACK)
+	o_setflag(O_FLAG, 0x6449)
+	o_ptr(O_ANIME, 0x0802396C)
+	o_ground()
+	o_anime(0x00)
+	o_seti(O_COL_TIMER, 0)
+	o_origin()
+	o_callback(object_b_802E6A2C)
+	o_while()
+		o_callback(object_b_802E742C)
+	o_wend()
+
+/* O_SCRIPT o_130031AC[] */
+.globl o_130031AC
+o_130031AC:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802E75A0)
+	o_sleep(1)
+	o_while()
+		o_callback(obj_lib_802A399C)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_130031DC[] */
+.globl o_130031DC
+o_130031DC:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2449)
+	o_ptr(O_ANIME, 0x0802396C)
+	o_col_type(0x00800000)
+	o_ground()
+	o_col_hit(100, 60)
+	o_anime(0x00)
+	o_seti(O_V2, 0)
+	o_origin()
+	o_callback(object_b_802E76AC)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802E7C4C)
+	o_wend()
+
+/* O_SCRIPT o_13003228[] */
+.globl o_13003228
+o_13003228:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x6449)
+	o_ptr(O_ANIME, 0x0802396C)
+	o_col_type(0x00800000)
+	o_ground()
+	o_col_hit(100, 60)
+	o_anime(0x00)
+	o_seti(O_V2, 1)
+	o_origin()
+	o_callback(object_b_802E76AC)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802E7C4C)
+	o_wend()
+
+/* O_SCRIPT o_cannoncloser[] */
+.globl o_cannoncloser
+o_cannoncloser:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x6449)
+	o_ptr(O_ANIME, 0x0802396C)
+	o_col_type(0x00800000)
+	o_ground()
+	o_col_hit(100, 60)
+	o_anime(0x00)
+	o_seti(O_V2, 2)
+	o_origin()
+	o_callback(object_b_802E76AC)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802E7C4C)
+	o_wend()
+
+/* O_SCRIPT o_13003274[] */
+.globl o_13003274
+o_13003274:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x4001)
+	o_map(0x08004950)
+	o_origin()
+	o_callback(object_b_802E7C90)
+	o_while()
+		o_callback(object_b_802E7E54)
+	o_wend()
+
+/* O_SCRIPT o_130032A8[] */
+.globl o_130032A8
+o_130032A8:
+	o_init(O_TYPE_PL_USE)
+	o_setflag(O_FLAG, 0x0041)
+	o_callback(object_b_802E7F70)
+	o_while()
+		o_callback(object_b_802E80DC)
+	o_wend()
+
+/* O_SCRIPT o_130032C8[] */
+.globl o_130032C8
+o_130032C8:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0041)
+	o_while()
+		o_callback(object_b_802E82B0)
+	o_wend()
+
+/* O_SCRIPT o_signpost[] */
+.globl o_signpost
+o_signpost:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(map_signpost)
+	o_col_type(0x00800000)
+	o_seti(O_COL_ARG, 4096)
+	o_ground()
+	o_col_hit(150, 80)
+	o_seti(O_V0, 0)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(map_data_803839CC)
+		o_seti(O_COL_FLAG, 0)
+	o_wend()
+
+/* O_SCRIPT o_13003324[] */
+.globl o_13003324
+o_13003324:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_col_type(0x00800000)
+	o_seti(O_COL_ARG, 4096)
+	o_col_hit(150, 80)
+	o_seti(O_V0, 0)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_seti(O_COL_FLAG, 0)
+	o_wend()
+
+/* O_SCRIPT o_13003354[] */
+.globl o_13003354
+o_13003354:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x204B)
+	o_ptr(O_ANIME, 0x08004034)
+	o_anime(0x00)
+	o_setf(O_SHAPE_OFF_Y, 40)
+	o_seti(O_COL_TIMER, 0)
+	o_callback(object_b_802E8388)
+	o_while()
+		o_callback(object_b_802E89D4)
+	o_wend()
+
+/* O_SCRIPT o_13003388[] */
+.globl o_13003388
+o_13003388:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2043)
+	o_ptr(O_ANIME, 0x08004034)
+	o_anime(0x00)
+	o_setf(O_SHAPE_OFF_Y, 40)
+	o_seti(O_COL_TIMER, 0)
+	o_callback(object_b_802E8AE4)
+	o_while()
+		o_callback(object_b_802E8ECC)
+	o_wend()
+
+/* O_SCRIPT o_130033BC[] */
+.globl o_130033BC
+o_130033BC:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0009)
+	o_ptr(O_ANIME, anime_butterfly)
+	o_ground()
+	o_setf(O_SHAPE_OFF_Y, 5)
+	o_callback(object_b_802E8F68)
+	o_while()
+		o_callback(object_b_802E96C8)
+	o_wend()
+
+/* O_SCRIPT o_130033EC[] */
+.globl o_130033EC
+o_130033EC:
+	o_init(O_TYPE_PL_USE)
+	o_setflag(O_FLAG, 0x0009)
+	o_ptr(O_ANIME, 0x05005768)
+	o_seti(O_COL_TYPE, 1)
+	o_col_hit(75, 75)
+	o_callback(object_b_802E9764)
+	o_while()
+		o_callback(object_b_802EA588)
+	o_wend()
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0401)
+	o_seti(O_COL_TYPE, 2)
+	o_ground()
+	o_col_hit(40, 50)
+	o_callback(object_b_802EA6A8)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802EA7E0)
+	o_wend()
+
+/* O_SCRIPT o_13003454[] */
+.globl o_13003454
+o_13003454:
+	o_init(O_TYPE_DEFAULT)
+	o_exit()
+	o_init(O_TYPE_DEFAULT)
+	o_exit()
+
+/* O_SCRIPT o_13003464[] */
+.globl o_13003464
+o_13003464:
+	o_init(O_TYPE_DEFAULT)
+	o_exit()
+
+/* O_SCRIPT o_1300346C[] */
+.globl o_1300346C
+o_1300346C:
+	o_init(O_TYPE_DEFAULT)
+	o_exit()
+
+/* O_SCRIPT o_13003474[] */
+.globl o_13003474
+o_13003474:
+	o_init(O_TYPE_DEFAULT)
+	o_exit()
+	o_init(O_TYPE_DEFAULT)
+	o_exit()
+
+/* O_SCRIPT o_13003484[] */
+.globl o_13003484
+o_13003484:
+	o_init(O_TYPE_EFFECT)
+	o_setflag(O_FLAG, 0x0007)
+	o_billboard()
+	o_setflag(O_FLAG, 0x0001)
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802EA888)
+	o_setrandf(O_VEL_Y, 3, 6)
+	o_setrandr(O_ANG_Y, 0, 0)
+	o_sleep(1)
+	o_while()
+		o_callback(object_b_802EA934)
+	o_wend()
+
+/* O_SCRIPT o_130034C4[] */
+.globl o_130034C4
+o_130034C4:
+	o_init(O_TYPE_EFFECT)
+	o_setflag(O_FLAG, 0x0001)
+	o_setf(O_SHAPE_ANG_X, 0)
+	o_setf(O_SHAPE_ANG_Y, 0)
+	o_setf(O_SHAPE_ANG_Z, 0)
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802EAA10)
+	o_addi(O_ANIME_CODE, 1)
+	o_sleep(6)
+	o_while()
+		o_callback(object_b_802EAA50)
+		o_addi(O_ANIME_CODE, 1)
+		o_for(6)
+			o_callback(object_b_802EAA50)
+		o_fend()
+	o_wend()
+
+/* O_SCRIPT o_13003510[] */
+.globl o_13003510
+o_13003510:
+	o_init(O_TYPE_PL_ATTACK)
+	o_setflag(O_FLAG, 0x0041)
+	o_billboard()
+	o_col_type(0x00000008)
+	o_seti(O_AP, 2)
+	o_seti(O_COL_TIMER, 0)
+	o_col_off(150, 150, 150)
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802EAA8C)
+	o_while()
+		o_callback(object_b_802EAAD0)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_13003558[] */
+.globl o_13003558
+o_13003558:
+	o_init(O_TYPE_EFFECT)
+	o_setflag(O_FLAG, 0x0007)
+	o_billboard()
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(object_b_802EABF0)
+	o_sleep(1)
+	o_while()
+		o_callback(obj_lib_802A399C)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_13003588[] */
+.globl o_13003588
+o_13003588:
+	o_init(O_TYPE_EFFECT)
+	o_setflag(O_FLAG, 0x0007)
+	o_billboard()
+	o_seti(O_ANIME_CODE, -1)
+	o_sleep(1)
+	o_while()
+		o_callback(obj_lib_802A399C)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_130035B0[] */
+.globl o_130035B0
+o_130035B0:
+	o_init(O_TYPE_DEFAULT)
+	o_billboard()
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(object_b_802EAC3C)
+	o_addrandf(O_POS_X, -50, 100)
+	o_addrandf(O_POS_Y, -50, 100)
+	o_addrandf(O_POS_Z, -50, 100)
+	o_call(o_13003600)
+	o_sleep(1)
+	o_while()
+		o_call(o_13003600)
+		o_callback(object_b_802EAD3C)
+	o_wend()
+
+/* O_SCRIPT o_13003600[] */
+.globl o_13003600
+o_13003600:
+	o_addrandf(O_POS_X, -2, 4)
+	o_addrandf(O_POS_Z, -2, 4)
+	o_return()
+
+/* O_SCRIPT o_13003614[] */
+.globl o_13003614
+o_13003614:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_while()
+		o_callback(object_b_802EAEF8)
+	o_wend()
+
+/* O_SCRIPT o_1300362C[] */
+.globl o_1300362C
+o_1300362C:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0009)
+	o_ptr(O_ANIME, anime_bully)
+	o_ground()
+	o_origin()
+	o_callback(object_b_802EB05C)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802EB9D0)
+	o_wend()
+
+/* O_SCRIPT o_13003660[] */
+.globl o_13003660
+o_13003660:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0009)
+	o_ptr(O_ANIME, anime_bully)
+	o_ground()
+	o_origin()
+	o_callback(object_b_802EB104)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802EB9D0)
+	o_wend()
+
+/* O_SCRIPT o_13003694[] */
+.globl o_13003694
+o_13003694:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0009)
+	o_ptr(O_ANIME, anime_bully)
+	o_origin()
+	o_callback(object_b_802EB104)
+	o_callback(object_b_802EBC00)
+	o_while()
+		o_callback(object_b_802EBCE0)
+	o_wend()
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0009)
+	o_ptr(O_ANIME, 0x06003994)
+	o_ground()
+	o_origin()
+	o_seti(O_V0, 16)
+	o_callback(object_b_802EB05C)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802EB9D0)
+	o_wend()
+
+/* O_SCRIPT o_13003700[] */
+.globl o_13003700
+o_13003700:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0009)
+	o_ptr(O_ANIME, 0x06003994)
+	o_ground()
+	o_origin()
+	o_seti(O_V0, 16)
+	o_callback(object_b_802EB104)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802EB9D0)
+	o_wend()
+
+/* O_SCRIPT o_13003738[] */
+.globl o_13003738
+o_13003738:
+	o_init(O_TYPE_DEFAULT)
+	o_shapehide()
+	o_while()
+		o_callback(object_b_802EC908)
+	o_wend()
+
+/* O_SCRIPT o_13003750[] */
+.globl o_13003750
+o_13003750:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_ptr(O_ANIME, 0x06013F7C)
+	o_col_off(75, 20, 20)
+	o_col_type(0x00010000)
+	o_seti(O_AP, 2)
+	o_seti(O_COL_TIMER, 0)
+	o_callback(object_b_802EC1B0)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802EC75C)
+	o_wend()
+
+/* O_SCRIPT o_13003798[] */
+.globl o_13003798
+o_13003798:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_ptr(O_ANIME, 0x06013F7C)
+	o_col_off(75, 20, 20)
+	o_col_type(0x00010000)
+	o_seti(O_AP, 2)
+	o_seti(O_COL_TIMER, 0)
+	o_callback(object_b_802EC9B8)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802ECBA4)
+	o_wend()
+
+/* O_SCRIPT o_130037E0[] */
+.globl o_130037E0
+o_130037E0:
+	o_init(O_TYPE_DEFAULT)
+	o_while()
+	o_wend()
+
+/* O_SCRIPT o_130037EC[] */
+.globl o_130037EC
+o_130037EC:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_seti(O_COL_TIMER, 0)
+	o_col_off(40, 40, 40)
+	o_sleep(1)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802ECC14)
+	o_wend()
+
+/* O_SCRIPT o_1300381C[] */
+.globl o_1300381C
+o_1300381C:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_setf(O_SHAPE_OFF_Y, -288)
+	o_seti(O_ANIME_CODE, -1)
+	o_while()
+		o_callback(object_b_802ECD0C)
+	o_wend()
+
+/* O_SCRIPT o_13003840[] */
+.globl o_13003840
+o_13003840:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_setf(O_SHAPE_OFF_Y, -288)
+	o_seti(O_ALPHA, 255)
+	o_seti(O_ANIME_CODE, -1)
+	o_while()
+		o_callback(object_b_802ECEA0)
+	o_wend()
+
+/* O_SCRIPT o_13003868[] */
+.globl o_13003868
+o_13003868:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(object_b_802ECFAC)
+	o_while()
+		o_callback(object_b_802ED39C)
+	o_wend()
+
+/* O_SCRIPT o_13003888[] */
+.globl o_13003888
+o_13003888:
+	o_init(O_TYPE_EFFECT)
+	o_billboard()
+	o_setflag(O_FLAG, 0x0001)
+	o_setf(O_SHAPE_OFF_Y, 25)
+	o_seti(O_ANIME_CODE, -1)
+	o_while()
+		o_addi(O_ANIME_CODE, 1)
+		o_callback(object_b_802ED40C)
+	o_wend()
+
+/* O_SCRIPT o_130038B0[] */
+.globl o_130038B0
+o_130038B0:
+	o_init(O_TYPE_DEFAULT)
+	o_billboard()
+	o_setflag(O_FLAG, 0x0001)
+	o_seti(O_ANIME_CODE, -1)
+	o_while()
+		o_callback(object_b_802ED45C)
+	o_wend()
+
+/* O_SCRIPT o_130038D0[] */
+.globl o_130038D0
+o_130038D0:
+	o_init(O_TYPE_DEFAULT)
+	o_shapehide()
+	o_while()
+		o_callback(object_b_802ED498)
+	o_wend()
+
+/* O_SCRIPT o_130038E8[] */
+.globl o_130038E8
+o_130038E8:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0009)
+	o_map(0x0701D078)
+	o_while()
+		o_callback(object_b_802ED62C)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003910[] */
+.globl o_13003910
+o_13003910:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0003)
+	o_map(0x0700F868)
+	o_callback(object_b_802ED78C)
+	o_while()
+		o_callback(object_b_802ED7FC)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003940[] */
+.globl o_13003940
+o_13003940:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0003)
+	o_map(0x0700F934)
+	o_callback(object_b_802EDACC)
+	o_while()
+		o_callback(object_b_802EDB2C)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003970[] */
+.globl o_13003970
+o_13003970:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0003)
+	o_map(0x0700FAA4)
+	o_callback(object_b_802EDDFC)
+	o_while()
+		o_callback(object_b_802EDF28)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_130039A0[] */
+.globl o_130039A0
+o_130039A0:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2009)
+	o_ptr(O_ANIME, 0x06005E5C)
+	o_ground()
+	o_origin()
+	o_seti(O_COL_TIMER, -1)
+	o_callback(object_b_802EE124)
+	o_while()
+		o_callback(object_b_802EE7E0)
+	o_wend()
+
+/* O_SCRIPT o_130039D4[] */
+.globl o_130039D4
+o_130039D4:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_setf(O_SHAPE_OFF_Y, 27)
+	o_billboard()
+	o_col_hit(110, 100)
+	o_seti(O_COL_TIMER, 0)
+	o_seti(O_ANIME_CODE, -1)
+	o_while()
+		o_addi(O_ANIME_CODE, 1)
+		o_callback(object_b_802EE8F4)
+	o_wend()
+
+/* O_SCRIPT o_13003A08[] */
+.globl o_13003A08
+o_13003A08:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_setf(O_SHAPE_OFF_Y, 130)
+	o_callback(object_b_802EF21C)
+	o_while()
+		o_callback(object_b_802EF274)
+	o_wend()
+
+/* O_SCRIPT o_13003A30[] */
+.globl o_13003A30
+o_13003A30:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_setf(O_SHAPE_OFF_Y, 130)
+	o_callback(object_b_802EF34C)
+	o_while()
+		o_callback(object_b_802EF524)
+	o_wend()
+
+/* O_SCRIPT o_13003A58[] */
+.globl o_13003A58
+o_13003A58:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_setf(O_SHAPE_OFF_Y, 130)
+	o_callback(object_b_802EE9CC)
+	o_while()
+		o_callback(object_b_802EEDF0)
+	o_wend()
+
+/* O_SCRIPT o_13003A80[] */
+.globl o_13003A80
+o_13003A80:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_seti(O_V2, 63)
+	o_callback(object_b_802EEEB4)
+	o_while()
+		o_callback(object_b_802EEF9C)
+	o_wend()
+
+/* O_SCRIPT o_13003AA4[] */
+.globl o_13003AA4
+o_13003AA4:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_seti(O_V2, 127)
+	o_callback(object_b_802EEEB4)
+	o_while()
+		o_callback(object_b_802EEF9C)
+	o_wend()
+
+/* O_SCRIPT o_13003AC8[] */
+.globl o_13003AC8
+o_13003AC8:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_while()
+		o_callback(object_b_802EF0E8)
+	o_wend()
+
+/* O_SCRIPT o_13003AE0[] */
+.globl o_13003AE0
+o_13003AE0:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(object_b_802EF63C)
+	o_while()
+		o_callback(object_b_802EF66C)
+	o_wend()
+
+/* O_SCRIPT o_13003B00[] */
+.globl o_13003B00
+o_13003B00:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0011)
+	o_map(0x07027F54)
+	o_callback(object_b_802EF820)
+	o_while()
+		o_callback(object_b_802EF858)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003B30[] */
+.globl o_13003B30
+o_13003B30:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0011)
+	o_map(0x0702808C)
+	o_callback(object_b_802EFCD0)
+	o_while()
+		o_callback(object_b_802EFD8C)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003B60[] */
+.globl o_13003B60
+o_13003B60:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x07028110)
+	o_origin()
+	o_setf(O_COL_DIST, 20000)
+	o_callback(object_b_802EFE64)
+	o_while()
+		o_callback(object_b_802EFEF4)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003B98[] */
+.globl o_13003B98
+o_13003B98:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_while()
+		o_callback(object_b_802F0104)
+	o_wend()
+
+/* O_SCRIPT o_13003BB4[] */
+.globl o_13003BB4
+o_13003BB4:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x070125F4)
+	o_origin()
+	o_setf(O_COL_DIST, 20000)
+	o_callback(object_b_802F0168)
+	o_while()
+		o_callback(object_b_802F05B4)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003BEC[] */
+.globl o_13003BEC
+o_13003BEC:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(object_b_802F06A8)
+	o_while()
+		o_callback(object_b_802F0714)
+	o_wend()
+
+/* O_SCRIPT o_13003C0C[] */
+.globl o_13003C0C
+o_13003C0C:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_col_hit(50, 50)
+	o_seti(O_COL_TIMER, 0)
+	o_while()
+		o_callback(object_b_802F0788)
+	o_wend()
+
+/* O_SCRIPT o_13003C30[] */
+.globl o_13003C30
+o_13003C30:
+	o_init(O_TYPE_DEFAULT)
+	o_while()
+		o_callback(object_b_802F07F4)
+	o_wend()
+
+/* O_SCRIPT o_13003C44[] */
+.globl o_13003C44
+o_13003C44:
+	o_init(O_TYPE_DEFAULT)
+	o_while()
+		o_callback(object_b_802F0820)
+	o_wend()
+
+/* O_SCRIPT o_13003C58[] */
+.globl o_13003C58
+o_13003C58:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_ptr(O_ANIME, 0x0700C95C)
+	o_anime(0x00)
+	o_callback(object_b_802F084C)
+	o_while()
+	o_wend()
+
+/* O_SCRIPT o_13003C7C[] */
+.globl o_13003C7C
+o_13003C7C:
+	o_init(O_TYPE_DEFAULT)
+	o_while()
+		o_callback(object_b_802F0898)
+	o_wend()
+
+/* O_SCRIPT o_13003C90[] */
+.globl o_13003C90
+o_13003C90:
+	o_init(O_TYPE_DEFAULT)
+	o_callback(object_b_802F0950)
+	o_while()
+	o_wend()
+
+/* O_SCRIPT o_13003CA4[] */
+.globl o_13003CA4
+o_13003CA4:
+	o_init(O_TYPE_DEFAULT)
+	o_while()
+		o_callback(object_b_802F09A4)
+	o_wend()
+
+/* O_SCRIPT o_13003CB8[] */
+.globl o_13003CB8
+o_13003CB8:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x070116C8)
+	o_setf(O_COL_DIST, 4000)
+	o_callback(object_b_802F09F0)
+	o_while()
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003CE4[] */
+.globl o_13003CE4
+o_13003CE4:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2009)
+	o_ground()
+	o_seti(O_COL_TIMER, 0)
+	o_callback(object_b_802F0A40)
+	o_while()
+		o_callback(object_b_802F105C)
+	o_wend()
+
+/* O_SCRIPT o_13003D0C[] */
+.globl o_13003D0C
+o_13003D0C:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x2001)
+	o_ground()
+	o_setf(O_SHAPE_OFF_Y, 110)
+	o_callback(object_b_802F120C)
+	o_while()
+		o_callback(object_b_802F1370)
+	o_wend()
+
+/* O_SCRIPT o_13003D34[] */
+.globl o_13003D34
+o_13003D34:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_while()
+		o_callback(object_b_802F151C)
+	o_wend()
+
+/* O_SCRIPT o_13003D4C[] */
+.globl o_13003D4C
+o_13003D4C:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_setf(O_SHAPE_OFF_Y, 180)
+	o_col_type(0x00800000)
+	o_col_hit(210, 550)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+	o_wend()
+
+/* O_SCRIPT o_13003D74[] */
+.globl o_13003D74
+o_13003D74:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2009)
+	o_setf(O_SHAPE_OFF_Y, 180)
+	o_callback(object_b_802F15A8)
+	o_setf(O_COL_DIST, 20000)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F1714)
+	o_wend()
+
+/* O_SCRIPT o_13003DA0[] */
+.globl o_13003DA0
+o_13003DA0:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_while()
+		o_callback(object_b_802F17F0)
+	o_wend()
+
+/* O_SCRIPT o_13003DB8[] */
+.globl o_13003DB8
+o_13003DB8:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_callback(object_b_802F1D64)
+	o_while()
+		o_callback(object_b_802F1F3C)
+	o_wend()
+
+/* O_SCRIPT o_13003DD8[] */
+.globl o_13003DD8
+o_13003DD8:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_callback(object_b_802F1FD0)
+	o_while()
+		o_callback(object_b_802F20AC)
+	o_wend()
+
+/* O_SCRIPT o_13003DF8[] */
+.globl o_13003DF8
+o_13003DF8:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_callback(object_b_802F2140)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F23A8)
+	o_wend()
+
+/* O_SCRIPT o_13003E1C[] */
+.globl o_13003E1C
+o_13003E1C:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_callback(object_b_802F2498)
+	o_while()
+		o_callback(object_b_802F1F3C)
+	o_wend()
+
+/* O_SCRIPT o_13003E3C[] */
+.globl o_13003E3C
+o_13003E3C:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(obj_lib_802A4120)
+	o_callback(object_b_802F24F4)
+	o_while()
+		o_callback(object_b_802F25B0)
+	o_wend()
+
+/* O_SCRIPT o_13003E64[] */
+.globl o_13003E64
+o_13003E64:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(object_b_802F24F4)
+	o_callback(object_b_802F2614)
+	o_while()
+		o_callback(object_b_802F2768)
+	o_wend()
+
+/* O_SCRIPT o_13003E8C[] */
+.globl o_13003E8C
+o_13003E8C:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x4001)
+	o_callback(object_b_802F2C84)
+	o_while()
+		o_callback(object_b_802F2D8C)
+	o_wend()
+
+/* O_SCRIPT o_redcoin[] */
+.globl o_redcoin
+o_redcoin:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_seti(O_COL_TIMER, 0)
+	o_seti(O_ANIME_CODE, -1)
+	o_callback(obj_lib_802A4120)
+	o_callback(redcoin_init)
+	o_while()
+		o_callback(redcoin_update)
+		o_addi(O_ANIME_CODE, 1)
+	o_wend()
+
+/* O_SCRIPT o_13003EE4[] */
+.globl o_13003EE4
+o_13003EE4:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x4001)
+	o_while()
+		o_callback(object_b_802F328C)
+	o_wend()
+
+/* O_SCRIPT o_13003EFC[] */
+.globl o_13003EFC
+o_13003EFC:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x4001)
+	o_callback(object_b_802F3014)
+	o_while()
+		o_callback(object_b_802F30F0)
+	o_wend()
+
+/* O_SCRIPT o_13003F1C[] */
+.globl o_13003F1C
+o_13003F1C:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_col_hit(100, 100)
+	o_seti(O_COL_TIMER, 0)
+	o_while()
+		o_callback(object_b_802F31BC)
+	o_wend()
+
+/* O_SCRIPT o_13003F40[] */
+.globl o_13003F40
+o_13003F40:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x07013678)
+	o_origin()
+	o_setf(O_COL_DIST, 2000)
+	o_callback(object_b_802F336C)
+	o_while()
+		o_callback(object_b_802F36A4)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003F78[] */
+.globl o_13003F78
+o_13003F78:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x0702844C)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F3A30)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003FA4[] */
+.globl o_13003FA4
+o_13003FA4:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x0701D578)
+	o_origin()
+	o_setf(O_COL_DIST, 2000)
+	o_callback(object_b_802F3B98)
+	o_while()
+		o_callback(object_b_802F36A4)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13003FDC[] */
+.globl o_13003FDC
+o_13003FDC:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_billboard()
+	o_col_off(30, 30, 0)
+	o_setf(O_SHAPE_OFF_Y, 30)
+	o_callback(object_b_802F3CC8)
+	o_while()
+		o_callback(object_b_802F40CC)
+	o_wend()
+
+/* O_SCRIPT o_13004010[] */
+.globl o_13004010
+o_13004010:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_billboard()
+	o_col_off(30, 30, 0)
+	o_setf(O_SHAPE_OFF_Y, 30)
+	o_callback(object_b_802F3CC8)
+	o_while()
+		o_callback(object_b_802F4248)
+	o_wend()
+
+/* O_SCRIPT o_13004044[] */
+.globl o_13004044
+o_13004044:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_col_off(30, 30, 0)
+	o_setf(O_SHAPE_OFF_Y, 30)
+	o_callback(object_b_802F3CC8)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F44C0)
+	o_wend()
+
+/* O_SCRIPT o_1300407C[] */
+.globl o_1300407C
+o_1300407C:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_col_off(30, 30, 0)
+	o_setf(O_SHAPE_OFF_Y, 30)
+	o_callback(object_b_802F3D30)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F45B8)
+	o_wend()
+
+/* O_SCRIPT o_130040B4[] */
+.globl o_130040B4
+o_130040B4:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_billboard()
+	o_col_off(30, 30, 0)
+	o_setf(O_SHAPE_OFF_Y, 30)
+	o_callback(object_b_802F3CC8)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F45F0)
+	o_wend()
+
+/* O_SCRIPT o_130040EC[] */
+.globl o_130040EC
+o_130040EC:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_billboard()
+	o_col_off(30, 30, 0)
+	o_setf(O_SHAPE_OFF_Y, 30)
+	o_callback(object_b_802F3CC8)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F4710)
+	o_wend()
+
+/* O_SCRIPT o_13004124[] */
+.globl o_13004124
+o_13004124:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_col_hit(100, 100)
+	o_seti(O_COL_TIMER, 0)
+	o_while()
+		o_callback(object_b_802F48F4)
+	o_wend()
+
+/* O_SCRIPT o_13004148[] */
+.globl o_13004148
+o_13004148:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x2001)
+	o_billboard()
+	o_col_off(30, 30, 0)
+	o_setf(O_SHAPE_OFF_Y, 30)
+	o_callback(object_b_802F3CC8)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F496C)
+	o_wend()
+
+/* O_SCRIPT o_13004180[] */
+.globl o_13004180
+o_13004180:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_col_hit(100, 100)
+	o_seti(O_COL_TIMER, 0)
+	o_while()
+		o_callback(object_b_802F4B00)
+	o_wend()
+
+/* O_SCRIPT o_130041A4[] */
+.globl o_130041A4
+o_130041A4:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_while()
+		o_callback(object_b_802F4B78)
+	o_wend()
+
+/* O_SCRIPT o_130041BC[] */
+.globl o_130041BC
+o_130041BC:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0821)
+	o_map(0x0702B6E0)
+	o_origin()
+	o_callback(object_b_802F4EB4)
+	o_while()
+		o_callback(object_b_802F55A4)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_130041F0[] */
+.globl o_130041F0
+o_130041F0:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x0702B7F4)
+	o_while()
+		o_callback(object_b_802F4D78)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13004218[] */
+.globl o_13004218
+o_13004218:
+	o_init(O_TYPE_PL_ATTACK)
+	o_setflag(O_FLAG, 0x0449)
+	o_ground()
+	o_origin()
+	o_callback(object_b_802F5CD4)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F6228)
+	o_wend()
+
+/* O_SCRIPT o_13004244[] */
+.globl o_13004244
+o_13004244:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x0700EF6C)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F62E4)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13004270[] */
+.globl o_13004270
+o_13004270:
+	o_init(O_TYPE_DEFAULT)
+	o_while()
+		o_callback(object_b_802F6448)
+	o_wend()
+
+/* O_SCRIPT o_13004284[] */
+.globl o_13004284
+o_13004284:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0009)
+	o_map(0x070183C0)
+	o_setf(O_V2, 64)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F6984)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_130042B4[] */
+.globl o_130042B4
+o_130042B4:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0009)
+	o_map(0x07018630)
+	o_setf(O_V2, 64)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F6984)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_130042E4[] */
+.globl o_130042E4
+o_130042E4:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0009)
+	o_map(0x0700C824)
+	o_setf(O_V2, 64)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F6984)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13004314[] */
+.globl o_13004314
+o_13004314:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x07018444)
+	o_setrandr(O_V3, 1, 32)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F6C0C)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_13004348[] */
+.globl o_13004348
+o_13004348:
+	o_init(O_TYPE_ITEM)
+	o_setflag(O_FLAG, 0x0001)
+	o_billboard()
+	o_origin()
+	o_callback(object_b_802F6D20)
+	o_while()
+		o_callback(object_b_802F6D58)
+	o_wend()
+
+/* O_SCRIPT o_13004370[] */
+.globl o_13004370
+o_13004370:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0011)
+	o_ptr(O_ANIME, 0x05008EB4)
+	o_anime(0x00)
+	o_callback(object_b_802F6E40)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F7264)
+	o_wend()
+
+/* O_SCRIPT o_130043A0[] */
+.globl o_130043A0
+o_130043A0:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2001)
+	o_origin()
+	o_callback(object_b_802F7348)
+	o_while()
+		o_callback(object_b_802F74DC)
+	o_wend()
+
+/* O_SCRIPT o_130043C4[] */
+.globl o_130043C4
+o_130043C4:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F7760)
+	o_wend()
+
+/* O_SCRIPT o_130043E0[] */
+.globl o_130043E0
+o_130043E0:
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x0700D198)
+	o_while()
+		o_callback(map_data_803839CC)
+	o_wend()
+	o_init(O_TYPE_MOVEBG)
+	o_setflag(O_FLAG, 0x0001)
+	o_map(0x0700C8A8)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F7924)
+		o_callback(map_data_803839CC)
+	o_wend()
+
+/* O_SCRIPT o_1300442C[] */
+.globl o_1300442C
+o_1300442C:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_callback(object_b_802F7978)
+	o_while()
+		o_callback(object_b_802F79B0)
+	o_wend()
+
+/* O_SCRIPT o_1300444C[] */
+.globl o_1300444C
+o_1300444C:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_ground()
+	o_callback(object_b_802F7FA0)
+	o_while()
+		o_callback(object_b_802F8044)
+	o_wend()
+
+/* O_SCRIPT o_13004470[] */
+.globl o_13004470
+o_13004470:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_ground()
+	o_callback(object_b_802F8158)
+	o_while()
+		o_callback(object_b_802F8208)
+	o_wend()
+
+/* O_SCRIPT o_13004494[] */
+.globl o_13004494
+o_13004494:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_ground()
+	o_callback(object_b_802F82F8)
+	o_while()
+		o_callback(object_b_802F83A4)
+	o_wend()
+
+/* O_SCRIPT o_chest_stage1[] */
+.globl o_chest_stage1
+o_chest_stage1:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_ground()
+	o_callback(chest_stage1_init)
+	o_while()
+		o_callback(chest_stage1_update)
+	o_wend()
+
+/* O_SCRIPT o_130044B8[] */
+.globl o_130044B8
+o_130044B8:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_ground()
+	o_callback(object_b_802F7C9C)
+	o_seti(O_COL_TIMER, -1)
+	o_while()
+		o_callback(object_b_802F7D04)
+	o_wend()
+
+/* O_SCRIPT o_chestrand[] */
+.globl o_chestrand
+o_chestrand:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0001)
+	o_ground()
+	o_callback(object_b_802F7C9C)
+	o_seti(O_COL_TIMER, -1)
+	o_while()
+		o_callback(chestrand_update)
+		o_callback(object_b_802F7D04)
+	o_wend()
+
+/* O_SCRIPT o_130044E0[] */
+.globl o_130044E0
+o_130044E0:
+	o_init(O_TYPE_DEFAULT)
+	o_setflag(O_FLAG, 0x0001)
+	o_origin()
+	o_while()
+		o_callback(object_b_802F7A58)
+	o_wend()
+
+/* O_SCRIPT o_130044FC[] */
+.globl o_130044FC
+o_130044FC:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x0409)
+	o_ptr(O_ANIME, 0x06015724)
+	o_seti(O_COL_TYPE, 2)
+	o_ground()
+	o_col_hit(50, 75)
+	o_seti(O_COL_TIMER, 0)
+	o_callback(object_b_802F8490)
+	o_while()
+		o_callback(object_b_802F8DAC)
+	o_wend()
+
+/* O_SCRIPT o_13004538[] */
+.globl o_13004538
+o_13004538:
+	o_init(O_TYPE_ENEMYA)
+	o_setflag(O_FLAG, 0x2009)
+	o_ptr(O_ANIME, 0x050241E8)
+	o_col_type(0x00800000)
+	o_ground()
+	o_col_hit(160, 150)
+	o_anime(0x00)
+	o_origin()
+	o_callback(object_b_802F8E54)
+	o_while()
+		o_seti(O_COL_TIMER, 0)
+		o_callback(object_b_802F965C)
+	o_wend()

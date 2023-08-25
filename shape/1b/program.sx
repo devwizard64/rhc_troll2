@@ -1,0 +1,6 @@
+.globl p_shape_1b
+p_shape_1b:
+	p_shape_script(S_BLARGG, s_blargg)
+	p_shape_script(S_BULLY, s_bully)
+	p_shape_script(S_BIGBULLY, s_bigbully)
+	p_return()

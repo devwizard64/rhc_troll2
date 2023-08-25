@@ -1,0 +1,7 @@
+.globl p_shape_1g
+p_shape_1g:
+	p_shape_script(S_1G_84, s_1g_84)
+	p_shape_script(S_1G_85, s_1g_85)
+	p_shape_script(S_1G_86, s_1g_86)
+	p_shape_script(S_1G_87, s_1g_87)
+	p_return()

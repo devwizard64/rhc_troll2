@@ -1,0 +1,31 @@
+#include <sm64/p_script.h>
+
+.data
+
+.globl p_bitdwa
+p_bitdwa:
+	p_stage_init()
+	p_load_szp(SEG_STAGE_GFX, _BitDWA_gfxSegmentRomStart, _BitDWA_gfxSegmentRomEnd)
+	p_load_szp(SEG_BACKGROUND, _BackgroundISegmentRomStart, _BackgroundISegmentRomEnd)
+	p_load_szp(SEG_SHAPE2_GFX, _Shape2A_gfxSegmentRomStart, _Shape2A_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE2_DATA, _Shape2A_dataSegmentRomStart, _Shape2A_dataSegmentRomEnd)
+	p_stage_start()
+		p_mario()
+		p_call(p_shape_2a)
+		p_shape_script(S_2A_3, s_2a_3)
+		p_scene_start(1, s_bitdwa1)
+			p_object_globl(S_NULL, 0, 1307, 0, 0, 180, 0, 0, 10, 0, o_13002F6C)
+			p_port(10, STAGE_BITDWA, 1, 10)
+			p_port(240, STAGE_INSIDE, 1, 36)
+			p_port(241, STAGE_BITDW, 1, 12)
+			p_map(0x07002838)
+			p_bgm(NA_MODE_ARENA, NA_BGM_ARENA)
+			p_env(ENV_ROCK)
+		p_scene_end()
+	p_stage_end()
+	p_player_open(1, 180, 0, 307, 0)
+	p_callback(p_game_main, 0)
+	p_process(p_game_main, 1)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()

@@ -1,0 +1,21 @@
+ply
+format ascii 1.0
+element vertex 4
+property short x
+property short y
+property short z
+property float s
+property float t
+property float nx
+property float ny
+property float nz
+property uchar alpha
+element face 2
+property list uchar uint vertex_indices
+end_header
+-179 260 60 0.015625 0.017578125 0.0 0.0 0.9921875 255
+180 460 60 0.982421875 0.984375 0.0 0.0 0.9921875 255
+-179 460 60 0.015625 0.984375 0.0 0.0 0.9921875 255
+180 260 60 0.982421875 0.017578125 0.0 0.0 0.9921875 255
+3 0 1 2
+3 0 3 1

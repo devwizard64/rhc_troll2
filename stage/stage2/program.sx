@@ -1,0 +1,67 @@
+#include <sm64/p_script.h>
+
+.data
+
+#define TESTING 0
+
+.globl p_stage2
+p_stage2:
+#if !TESTING
+	p_sleep(30)
+	p_stage_init()
+	p_set(0)
+	p_callback(p_video_main, 0)
+	p_bgm_play(NA_BGM_CHANGE)
+	p_process(p_video_main, 1)
+	p_bgm_stop(192)
+	p_callback(p_stage2_blank, 0)
+	p_sleep(10)
+	p_stage_exit()
+	p_freeze(1)
+#endif
+	p_stage_init()
+	p_load_code(_nesSegmentStart, _nesSegmentRomStart, _nesSegmentRomEnd)
+	p_load_szp(SEG_STAGE_GFX, _Stage2_gfxSegmentRomStart, _Stage2_gfxSegmentRomEnd)
+	p_load_szp(SEG_BACKGROUND, _BackgroundJSegmentRomStart, _BackgroundJSegmentRomEnd)
+	p_load_szp(SEG_SHAPE1_GFX, _Shape1C_gfxSegmentRomStart, _Shape1C_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE1_DATA, _Shape1C_dataSegmentRomStart, _Shape1C_dataSegmentRomEnd)
+	p_load_szp(SEG_SHAPE3_GFX, _Common_gfxSegmentRomStart, _Common_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE3_DATA, _Common_dataSegmentRomStart, _Common_dataSegmentRomEnd)
+	p_callback(p_stage2_patch, 0)
+	p_stage_start()
+		p_mario()
+		p_call(p_shape_3common)
+		p_call(p_shape_1c)
+		p_shape_script(S_PIPE, s_pipe_w)
+		p_shape_script(S_RETROSTAR, s_retrostar)
+		p_shape_gfx(S_RETROLIFTA, gfx_retrolift_a, OPA_SURF)
+		p_shape_gfx(S_RETROLIFTB, gfx_retrolift_b, OPA_SURF)
+		p_scene_start(1, s_retro)
+			p_object_globl(S_NULL, 3650, 2400, 0, 0, 0, 0, -2, 63, 0, o_gushretrolift)
+			p_object_globl(S_NULL, 4050, -800, 0, 0, 0, 0, 2, 63, 0, o_gushretrolift)
+			p_object_globl(S_NULL, 4450, 2400, 0, 0, 0, 0, -2, 63, 0, o_gushretrolift)
+			p_object_globl(S_RETROLIFTB, 6350, -500, 0, 0, 0, 0, -2, 1, 0, o_retrolift_b)
+			p_object_globl(S_RETROSTAR, 7600, 1500, 0, 0, 0, 0, 0, 0, 0, o_retrostar)
+			p_object_globl(S_1C_86, 0, 1200, -5000, 0, 90, 0, 0, 0, 0, o_130001F4)
+			p_object_globl(S_PIPE, -7750, 0, 0, 0, 90, 0, 0, 10, 0, o_130007A0)
+			p_object_globl(S_NULL, -7500, 500, 0, 0, 90, 0, 0, 241, 0, o_13002F70)
+			p_port(10, 2, 1, 10)
+			p_port(240, 25, 1, 10)
+			p_port(241, 2, 1, 241)
+			p_map(map_retro)
+			p_obj(obj_retro)
+			p_bgm(NA_MODE_DEFAULT, NA_BGM_BOWSER)
+			p_env(ENV_GRASS)
+		p_scene_end()
+	p_stage_end()
+#if !TESTING
+	p_callback(p_nes_main, 0)
+	p_process(p_nes_main, 1)
+#endif
+	p_player_open(1, 90, -7500, 0, 0)
+	p_callback(p_userinfo, 2)
+	p_callback(p_stage2_main, 0)
+	p_process(p_stage2_main, 1)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()

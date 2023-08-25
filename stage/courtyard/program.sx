@@ -1,0 +1,56 @@
+#include <sm64/p_script.h>
+
+.data
+
+p_courtyard_0E000000:
+	p_object_globl(S_NULL, 0, 200, -1652, 0, 0, 0, 0, 0, 0, o_13003C90)
+	p_object_globl(S_NULL, -2700, 0, -1652, 0, 0, 0, 0, 0, 0, o_13003C7C)
+	p_object_globl(S_NULL, 2700, 0, -1652, 0, 0, 0, 0, 1, 0, o_13003C7C)
+	p_return()
+
+p_courtyard_0E00004C:
+	p_object_globl(S_1I_84, -3217, 100, -101, 0, 0, 0, 0, 0, 0, o_130027D0)
+	p_object_globl(S_1I_84, 3317, 100, -1701, 0, 0, 0, 0, 0, 0, o_130027D0)
+	p_object_globl(S_1I_84, -71, 1, -1387, 0, 0, 0, 0, 0, 0, o_130027D0)
+	p_return()
+
+.globl p_courtyard
+p_courtyard:
+	p_stage_init()
+	p_load_szp(SEG_STAGE_GFX, _Courtyard_gfxSegmentRomStart, _Courtyard_gfxSegmentRomEnd)
+	p_load_szp(SEG_BACKGROUND, _BackgroundASegmentRomStart, _BackgroundASegmentRomEnd)
+	p_load_txt(SEG_TEXTURE, _TextureKSegmentRomStart, _TextureKSegmentRomEnd)
+	p_load_szp(SEG_SHAPE1_GFX, _Shape1I_gfxSegmentRomStart, _Shape1I_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE1_DATA, _Shape1I_dataSegmentRomStart, _Shape1I_dataSegmentRomEnd)
+	p_load_szp(SEG_SHAPE3_GFX, _Common_gfxSegmentRomStart, _Common_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE3_DATA, _Common_dataSegmentRomStart, _Common_dataSegmentRomEnd)
+	p_stage_start()
+		p_mario()
+		p_call(p_shape_3common)
+		p_call(p_shape_1i)
+		p_shape_script(S_TREE_B, s_tree_b)
+		p_shape_script(S_PORTDOOR_B, s_door_b)
+		p_shape_script(S_COURTYARD_3, s_courtyard_3)
+		p_scene_start(1, s_courtyard1)
+			p_object_globl(S_1I_84, -2360, -100, -2712, 0, 0, 0, 1, 5, 0, o_13002710)
+			p_object_globl(S_NULL, 0, 51, -1000, 0, 180, 0, 0, 10, 0, o_13002F8C)
+			p_object_globl(S_NULL, 0, 51, -1000, 0, 180, 0, 0, 11, 0, o_13002F90)
+			p_port(5, STAGE_BBH, 1, 10)
+			p_port(10, STAGE_COURTYARD, 1, 10)
+			p_port(11, STAGE_COURTYARD, 1, 11)
+			p_port(1, STAGE_INSIDE, 1, 2)
+			p_port(241, STAGE_GROUNDS, 1, 3)
+			p_call(p_courtyard_0E000000)
+			p_call(p_courtyard_0E00004C)
+			p_map(0x070059A8)
+			p_obj(0x07006E20)
+			p_bgm(NA_MODE_DEFAULT, NA_BGM_NULL)
+			p_env(ENV_ROCK)
+		p_scene_end()
+	p_stage_end()
+	p_player_open(1, 0, -14, 0, -201)
+	p_callback(p_game_main, 0)
+	p_process(p_game_main, 1)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()

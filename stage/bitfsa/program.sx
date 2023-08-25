@@ -1,0 +1,42 @@
+#include <sm64/p_script.h>
+
+.data
+
+p_bitfsa_0E000000:
+	p_object_globl(S_BITFSA_54, 0, 0, 0, 0, 90, 0, 0, 0, 0, o_13001920)
+	p_object_globl(S_2A_179, 4, 1329, 3598, 0, 90, 0, 0, 0, 0, o_130037EC)
+	p_object_globl(S_2A_179, 3584, 1329, 0, 0, 90, 0, 0, 0, 0, o_130037EC)
+	p_object_globl(S_2A_179, 0, 1329, -3583, 0, 90, 0, 0, 0, 0, o_130037EC)
+	p_object_globl(S_2A_179, -3583, 1329, 0, 0, 90, 0, 0, 0, 0, o_130037EC)
+	p_return()
+
+.globl p_bitfsa
+p_bitfsa:
+	p_stage_init()
+	p_load_szp(SEG_BACKGROUND, _BackgroundDSegmentRomStart, _BackgroundDSegmentRomEnd)
+	p_load_txt(SEG_TEXTURE, _TextureASegmentRomStart, _TextureASegmentRomEnd)
+	p_load_szp(SEG_WEATHER, _WeatherSegmentRomStart, _WeatherSegmentRomEnd)
+	p_load_szp(SEG_STAGE_GFX, _BitFSA_gfxSegmentRomStart, _BitFSA_gfxSegmentRomEnd)
+	p_load_szp(SEG_SHAPE2_GFX, _Shape2A_gfxSegmentRomStart, _Shape2A_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE2_DATA, _Shape2A_dataSegmentRomStart, _Shape2A_dataSegmentRomEnd)
+	p_stage_start()
+		p_mario()
+		p_call(p_shape_2a)
+		p_shape_script(S_BITFSA_54, s_bitfsa_54)
+		p_scene_start(1, s_bitfsa1)
+			p_object_globl(S_NULL, 0, 2229, 0, 0, 180, 0, 0, 10, 0, o_13002F6C)
+			p_port(10, STAGE_BITFSA, 1, 10)
+			p_port(240, STAGE_INSIDE, 3, 54)
+			p_port(241, STAGE_BITFS, 1, 12)
+			p_call(p_bitfsa_0E000000)
+			p_map(0x070019F0)
+			p_bgm(NA_MODE_ARENA, NA_BGM_ARENA)
+			p_env(ENV_ROCK)
+		p_scene_end()
+	p_stage_end()
+	p_player_open(1, 180, 0, 1229, 0)
+	p_callback(p_game_main, 0)
+	p_process(p_game_main, 1)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()

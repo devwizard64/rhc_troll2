@@ -1,0 +1,32 @@
+#include <sm64/p_script.h>
+
+.data
+
+.globl p_stage3
+p_stage3:
+	p_stage_init()
+	p_load_szp(SEG_STAGE_GFX, _Stage3_gfxSegmentRomStart, _Stage3_gfxSegmentRomEnd)
+	p_load_txt(SEG_TEXTURE, _TextureLSegmentRomStart, _TextureLSegmentRomEnd)
+	p_load_szp(SEG_SHAPE2_GFX, _Shape2D_gfxSegmentRomStart, _Shape2D_gfxSegmentRomEnd)
+	p_load_data(SEG_SHAPE2_DATA, _Shape2D_dataSegmentRomStart, _Shape2D_dataSegmentRomEnd)
+	p_stage_start()
+		p_mario()
+		p_call(p_shape_2d)
+		p_scene_start(1, s_chamber)
+			p_object_globl(S_2D_221, -448, 0, -448, 0, 0, 0, 172, 0, 0, o_13002EF8)
+			p_object_globl(S_NULL, 0, 512, 384, 0, 180, 0, 0, 10, 0, o_1300075C)
+			p_port(10, 3, 1, 10)
+			p_port(240, STAGE_INSIDE, 1, 50)
+			p_port(241, STAGE_INSIDE, 1, 100)
+			p_map(map_chamber)
+			p_bgm(9, NA_BGM_NULL)
+			p_env(ENV_GRASS)
+		p_scene_end()
+	p_stage_end()
+	p_player_open(1, 180, 0, 0, 384)
+	p_callback(p_userinfo, 1)
+	p_callback(p_game_main, 0)
+	p_process(p_game_main, 1)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()

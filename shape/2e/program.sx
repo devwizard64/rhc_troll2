@@ -1,0 +1,6 @@
+.globl p_shape_2e
+p_shape_2e:
+	p_shape_script(S_2E_100, 0x06003754)
+	p_shape_script(S_2E_101, 0x06003874)
+	p_shape_script(S_2E_102, s_2e_102)
+	p_return()

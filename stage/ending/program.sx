@@ -1,0 +1,15 @@
+#include <sm64/p_script.h>
+
+.data
+
+.globl p_ending
+p_ending:
+	p_stage_init()
+	p_load_code(_nesSegmentStart, _nesSegmentRomStart, _nesSegmentRomEnd)
+	p_load_szp(SEG_STAGE_GFX, _Ending_gfxSegmentRomStart, _Ending_gfxSegmentRomEnd)
+	p_sleep(30)
+	p_callback(p_ending_main, 0)
+	p_process(p_ending_main, 1)
+	p_stage_exit()
+	p_freeze(1)
+	p_exit()
